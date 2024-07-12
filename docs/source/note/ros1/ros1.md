@@ -1,56 +1,10 @@
+# ROS学习
 
-
-## Terminaor
-
-//第一部份：关于在同一个标签内的操作
-Alt+Up                          //移动到上面的终端
-Alt+Down                        //移动到下面的终端
-Alt+Left                        //移动到左边的终端
-Alt+Right                       //移动到右边的终端
-Ctrl+Shift+O                    //水平分割终端
-Ctrl+Shift+E                    //垂直分割终端
-Ctrl+Shift+Right                //在垂直分割的终端中将分割条向右移动
-Ctrl+Shift+Left                 //在垂直分割的终端中将分割条向左移动
-Ctrl+Shift+Up                   //在水平分割的终端中将分割条向上移动
-Ctrl+Shift+Down                 //在水平分割的终端中将分割条向下移动
-Ctrl+Shift+S                    //隐藏/显示滚动条
-Ctrl+Shift+F                    //搜索
-Ctrl+Shift+C                    //复制选中的内容到剪贴板
-Ctrl+Shift+V                    //粘贴剪贴板的内容到此处
-Ctrl+Shift+W                    //关闭当前终端
-Ctrl+Shift+Q                    //退出当前窗口，当前窗口的所有终端都将被关闭
-Ctrl+Shift+X                    //最大化显示当前终端
-Ctrl+Shift+Z                    //最大化显示当前终端并使字体放大
-Ctrl+Shift+N or Ctrl+Tab        //移动到下一个终端
-Ctrl+Shift+P or Ctrl+Shift+Tab  //Crtl+Shift+Tab 移动到之前的一个终端
-
-//第二部份：有关各个标签之间的操作
-F11                             //全屏开关
-Ctrl+Shift+T                    //打开一个新的标签
-Ctrl+PageDown                   //移动到下一个标签
-Ctrl+PageUp                     //移动到上一个标签
-Ctrl+Shift+PageDown             //将当前标签与其后一个标签交换位置
-Ctrl+Shift+PageUp               //将当前标签与其前一个标签交换位置
-Ctrl+Plus (+)                   //增大字体
-Ctrl+Minus (-)                  //减小字体
-Ctrl+Zero (0)                   //恢复字体到原始大小
-Ctrl+Shift+R                    //重置终端状态
-Ctrl+Shift+G                    //重置终端状态并clear屏幕
-Super+g                         //绑定所有的终端，以便向一个输入能够输入到所有的终端
-Super+Shift+G                   //解除绑定
-Super+t                         //绑定当前标签的所有终端，向一个终端输入的内容会自动输入到其他终端
-Super+Shift+T                   //解除绑定
-Ctrl+Shift+I                    //打开一个窗口，新窗口与原来的窗口使用同一个进程
-Super+i                         //打开一个新窗口，新窗口与原来的窗口使用不同的进程
-
-
-## ROS学习
-
-### ROS创建HelloWorld
+## ROS创建HelloWorld
 
 本节内容基于1.3.1，假设你已经创建了ROS的工作空间，并且创建了ROS的功能包，那么就可以进入核心步骤了，使用C++编写程序实现：
 
-#### 1.进入 ros 包的 src 目录编辑源文件
+### 1.进入 ros 包的 src 目录编辑源文件
 
 ```
 cd 自定义的包
@@ -76,7 +30,7 @@ int main(int argc, char *argv[])
 Copy
 ```
 
-#### 2.编辑 ros 包下的 Cmakelist.txt文件
+### 2.编辑 ros 包下的 Cmakelist.txt文件
 
 ```cmake
 add_executable(步骤3的源文件名
@@ -88,7 +42,7 @@ target_link_libraries(步骤3的源文件名
 Copy
 ```
 
-#### 3.进入工作空间目录并编译
+### 3.进入工作空间目录并编译
 
 ```
 cd 自定义空间名称
@@ -98,7 +52,7 @@ Copy
 
 生成 build devel ....
 
-#### 4.执行
+### 4.执行
 
 **先启动命令行1：**
 
@@ -124,7 +78,7 @@ Copy
 
 添加方式2:`echo "source ~/工作空间/devel/setup.bash" >> ~/.bashrc`
 
-### ROS文件系统
+## ROS文件系统
 
 ROS文件系统级指的是在硬盘上ROS源代码的组织形式，其结构大致可以如下图所示：
 
@@ -167,7 +121,7 @@ Copy
 
 ROS 文件系统中部分目录和文件前面编程中已经有所涉及，比如功能包的创建、src目录下cpp文件的编写、scripts目录下python文件的编写、launch目录下launch文件的编写，并且也配置了 package.xml 与 CMakeLists.txt 文件。其他目录下的内容后面教程将会再行介绍，当前我们主要介绍: package.xml 与 CMakeLists.txt 这两个配置文件。
 
-#### 1.package.xml
+### 1.package.xml
 
 该文件定义有关软件包的属性，例如软件包名称，版本号，作者，维护者以及对其他catkin软件包的依赖性。请注意，该概念类似于旧版 rosbuild 构建系统中使用的*manifest.xml*文件。
 
@@ -256,7 +210,7 @@ ROS 文件系统中部分目录和文件前面编程中已经有所涉及，比�
 Copy
 ```
 
-#### 2.CMakelists.txt
+### 2.CMakelists.txt
 
 文件**CMakeLists.txt**是CMake构建系统的输入，用于构建软件包。任何兼容CMake的软件包都包含一个或多个CMakeLists.txt文件，这些文件描述了如何构建代码以及将代码安装到何处。
 
@@ -486,21 +440,21 @@ catkin_install_python(PROGRAMS
 # catkin_add_nosetests(test)
 ```
 
-### ROS文件系统相关命令
+## ROS文件系统相关命令
 
 ROS 的文件系统本质上都还是操作系统文件，我们可以使用Linux命令来操作这些文件，不过，在ROS中为了更好的用户体验，ROS专门提供了一些类似于Linux的命令，这些命令较之于Linux原生命令，更为简介、高效。文件操作，无外乎就是增删改查与执行等操作，接下来，我们就从这五个维度，来介绍ROS文件系统的一些常用命令。
 
-#### 1.增
+### 1.增
 
 catkin_create_pkg 自定义包名 依赖包 === 创建新的ROS功能包
 
 sudo apt install xxx === 安装 ROS功能包
 
-#### 2.删
+### 2.删
 
 sudo apt purge xxx ==== 删除某个功能包
 
-#### 3.查
+### 3.查
 
 rospack list === 列出所有功能包
 
@@ -512,7 +466,7 @@ rosls 包名 === 列出某个包下的文件
 
 apt search xxx === 搜索某个功能包
 
-#### 4.改
+### 4.改
 
 rosed 包名 文件名 === 修改功能包文件
 
