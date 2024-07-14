@@ -1,9 +1,10 @@
 Welcome to JinHemu's documentation!
 ======================================
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
     :caption: Contants:
 
     note/cpp/index
     note/opencv/index
-    note/Linear_Algebra/index
+    note/english/index
+    
